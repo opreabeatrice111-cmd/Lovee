@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Mă iubești?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffecf2;
+            background-image: url('https://example.com/pink-hearts.png'); /* Înlocuiește cu un link valid pentru inimioare */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #d63384;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #yesButton {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #noButton {
+            background-color: #cccccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mă iubești?</h1>
+        <button id="yesButton">DA</button>
+        <button id="noButton">NU</button>
+    </div>
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        let yesSize = 16;
+        
+        noButton.addEventListener('click', () => {
+            yesSize += 4;
+            yesButton.style.fontSize = yesSize + 'px';
+        });
+
+        yesButton.addEventListener('click', () => {
+            const firework = document.createElement('div');
+            firework.innerText = '🎆';
+            firework.style.position = 'fixed';
+            firework.style.fontSize = '40px';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1500); // Artificiile dispar după 1.5 secunde
+        });
+    </script>
+</body>
+</html>
